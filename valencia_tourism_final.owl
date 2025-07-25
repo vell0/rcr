@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="valencia_tourism.owl"
+         xmlns="valencia_tourism.owl#">
+
+<owl:Ontology rdf:about="valencia_tourism.owl"/>
+
+<owl:ObjectProperty rdf:about="#hasStyle">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="#ArchitecturalStyle"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isLocatedIn">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="#Location"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#wasDesignedBy">
+  <rdfs:domain rdf:resource="#HistoricalBuilding"/>
+  <rdfs:range rdf:resource="#Architect"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#exhibits">
+  <rdfs:domain rdf:resource="#Museum"/>
+  <rdfs:range rdf:resource="#CulturalHeritage"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isPartOf">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="#TouristRoute"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isNear">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="#TouristAttraction"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#hasName">
+  <rdfs:domain rdf:resource="#CulturalHeritage"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDescription">
+  <rdfs:domain rdf:resource="#CulturalHeritage"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasLatitude">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasLongitude">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasConstructionYear">
+  <rdfs:domain rdf:resource="#HistoricalBuilding"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasType">
+  <rdfs:domain rdf:resource="#TouristAttraction"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#CulturalHeritage">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elementos del patrimonio cultural de Valencia</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TouristAttraction">
+  <rdfs:subClassOf rdf:resource="#CulturalHeritage"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lugares de interés turístico en Valencia</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Monument">
+  <rdfs:subClassOf rdf:resource="#TouristAttraction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Museum">
+  <rdfs:subClassOf rdf:resource="#TouristAttraction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#HistoricalBuilding">
+  <rdfs:subClassOf rdf:resource="#TouristAttraction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CivilBuilding">
+  <rdfs:subClassOf rdf:resource="#HistoricalBuilding"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ReligiousBuilding">
+  <rdfs:subClassOf rdf:resource="#HistoricalBuilding"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MilitaryBuilding">
+  <rdfs:subClassOf rdf:resource="#HistoricalBuilding"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ArchitecturalStyle">
+  <rdfs:subClassOf rdf:resource="#CulturalHeritage"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estilos arquitectónicos presentes en los monumentos valencianos</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Gothic">
+  <rdfs:subClassOf rdf:resource="#ArchitecturalStyle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Renaissance">
+  <rdfs:subClassOf rdf:resource="#ArchitecturalStyle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Baroque">
+  <rdfs:subClassOf rdf:resource="#ArchitecturalStyle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Person">
+  <rdfs:subClassOf rdf:resource="#CulturalHeritage"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Artist">
+  <rdfs:subClassOf rdf:resource="#Person"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Painter">
+  <rdfs:subClassOf rdf:resource="#Artist"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Architect">
+  <rdfs:subClassOf rdf:resource="#Artist"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Sculptor">
+  <rdfs:subClassOf rdf:resource="#Artist"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Location">
+  <rdfs:subClassOf rdf:resource="#CulturalHeritage"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TouristRoute">
+  <rdfs:subClassOf rdf:resource="#CulturalHeritage"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#LaSedaLonja">
+  <rdf:type rdf:resource="#Monument"/>
+  <hasStyle rdf:resource="#GoticoValenciano"/>
+  <isNear rdf:resource="#CatedralValencia"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La Lonja de la Seda</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edificio gótico civil, declarado Patrimonio de la Humanidad por la UNESCO</hasDescription>
+  <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LandmarksOrHistoricalBuildings</hasType>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseoSeda">
+  <rdf:type rdf:resource="#Museum"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo del Colegio Arte Mayor de la Seda</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo dedicado a la industria de la seda en Valencia</hasDescription>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CatedralValencia">
+  <rdf:type rdf:resource="#ReligiousBuilding"/>
+  <hasStyle rdf:resource="#GoticoValenciano"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Catedral de Valencia</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TorresSerranos">
+  <rdf:type rdf:resource="#MilitaryBuilding"/>
+  <isNear rdf:resource="#CatedralValencia"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torres de Serranos</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TorresQuart">
+  <rdf:type rdf:resource="#MilitaryBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torres de Quart</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GoticoValenciano">
+  <rdf:type rdf:resource="#Gothic"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gótico Valenciano</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#BarrocoValenciano">
+  <rdf:type rdf:resource="#Baroque"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barroco Valenciano</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sorolla">
+  <rdf:type rdf:resource="#Painter"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Joaquín Sorolla</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Goya">
+  <rdf:type rdf:resource="#Painter"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Francisco de Goya</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Calatrava">
+  <rdf:type rdf:resource="#Architect"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Santiago Calatrava</hasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LaLonjadelaSeda">
+  <rdf:type rdf:resource="#Monument"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La Lonja de la Seda </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La Lonja es uno de los edificios característicos de la ciudad, además de ser uno de los más famosos monumentos del gótico civil que puede ofrecer Europa. Goza de la alta distinción de Monumento Histórico Artístico de carácter nacional y fue declarada por la UNESCO como Patrimonio de la Humanidad. 
+
+La Lonja consta de tres cuerpos claramente diferenciados y un jardín o "patio de naranjos". El Salón Columnario o Sala de Contratación está dividido en tres naves longitudinales y cinco transversales, en función de las ocho columnas exentas que soportan las bóvedas. En esta Sala se instaló la Taula de Canvis, que obtuvo gran prestigio por su solvencia y volumen de operaciones bancarias. 
+
+ En la planta baja se ubicaba la capilla dedicada a la Inmaculada Concepción, mientras que los dos pisos altos se destinaban a cárcel de mercaderes morosos en el pago.  </hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47438803499972</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.37832121443329036</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseodelColegioArteMayordelaSeda">
+  <rdf:type rdf:resource="#Monument"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo del Colegio Arte Mayor de la Seda</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El Museo de la Seda de València ocupa la que fue la sede del Colegio del Arte Mayor de la Seda desde el siglo XV, en un edificio que entremezcla los estilos gótico y barroco. La visita al museo permite conocer cómo la seda llegó a València, la importancia de este comercio durante más de tres siglos y la herencia que todavía hoy en día puede verse en los trajes típicos de las fiestas valencianas. Telares antiguos en funcionamiento, la típica andana donde se criaban los gusanos de seda, herramientas de trabajo, muestras de tejidos de seda, trajes antiguos, documentos históricos…un valioso patrimonio que adentra al visitante a la rica historia sedera que vivió València durante tres siglos. 
+</hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47083924314765</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.38097123694000423</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PalaciodeTamarit">
+  <rdf:type rdf:resource="#CivilBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Palacio de Tamarit  </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Antigua fábrica de terciopelo donde residió una de las dinastías más importantes de maestros sederos y empresarios del S. XVIII, que exportaban seda a las colonias españolas.  Esta familia llegó a emplear a más de 500 personas en sus telares. Hoy en día este edificio construido en el S. XVIII, el único que se conserva de la industria de la seda valenciana, está rehabilitado como espacio social y cultural. 
+
+Autor de la Imagen: Palacio Tamarit</hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47166744880435</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.3808478553253192</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CentrodeArtesanadelaComunidadValenciana">
+  <rdf:type rdf:resource="#CivilBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Centro de Artesanía de la Comunidad Valenciana  </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Centro de Artesanía de la Comunitat Valenciana, destinado principalmente, a difundir y potenciar la artesanía de la Comunitat, así como a promover la consolidación y la competitividad de las empresas de los distintos sectores artesanales que la integran, mediante el desarrollo de políticas promocionales, informativas, formativas, de análisis, de asistencia y de coordinación. 
+Nace en mayo de 1987 con el propósito de desarrollar el potencial del colectivo artesano como parte importante del tejido productivo valenciano y como garantía de pervivencia de nuestras raíces artísticas y culturales</hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47043755985407</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.3810141522842425</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseoNacionaldeCermicayArtesSuntuariasubicadoenelPalaciodelMarqusdeDosAguas">
+  <rdf:type rdf:resource="#Monument"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Museo Nacional de Cerámica y Artes Suntuarias ubicado en el Palacio del Marqués de Dos Aguas </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En honor a la industria de la cerámica Valenciana, el Museo Nacional de Cerámica-González Martí se ubica en el que es considerado el mejor ejemplo de Barroco en España, el Palacio del Marqués de Dos Aguas. El museo alberga la mayor colección nacional de cerámica desde el siglo VIII hasta la época contemporánea con piezas de Picasso. 
+
+Autor de la imagen: Turisme Comunitat Valenciana</hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47265093021674</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.3746492702919024</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseoLIberdesoldaditosdeplomo">
+  <rdf:type rdf:resource="#CivilBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo L'Iber de  soldaditos de plomo</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El mayor museo de miniaturas históricas del mundo, con más de 95.000 piezas expuestas. Ubicado en el Palacio de Malferit, uno de los mejores ejemplos del estilo gótico mediterráneo. 
+Muestra la historia en tres dimensiones desde los dinosaurios hasta los cascos azules pasando por Egipto, Roma, la Ruta de la Seda, la historia de España etcétera. El museo ha mantenido la decoración de las salas como eran en un edificio señorial valenciano a principios del siglo XX. Se realizan además micro muestras y exposiciones temporales. Por otra parte, es un centro cultural que organiza numerosas actividades como conferencias, conciertos, presentaciones de libros, cursos, teatro y viajes, entre otras. 
+
+ </hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47678554103459</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.3781535763698596</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseodeBellasArtesdeValencia">
+  <rdf:type rdf:resource="#CivilBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo de Bellas Artes de Valencia</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El Museo de las Bellas Artes de Valencia es la segunda mayor pinacoteca de España con obra de los siglos XV al XIX, donde destacan las salas dedicadas a Sorolla, así como la destinada a Francisco de Goya. Son impactantes las salas de obra Gótica y muy representativas de la escuela valenciana las de los pintores y escultores Pinazo y Benlliure. El museo sobresale además por la colección pictórica artísticas de este estilo en España. No hay que perderse tampoco el Patio del Embajador Vich y la obra inédita de Velázquez.
+
+El edificio histórico que aloja el museo fue en origen el Colegio Seminario San Pío V, fundado en 1683 por el arzobispo de València fray Juan Tomás de Rocabertí. Sus trazas se deben al arquitecto Juan Bautista Pérez Castiel, maestro de obras de la Catedral. La construcción se realizó entre 1683 y 1744, aunque su iglesia fue demolida en parte en 1925. El edificio ha tenido diferentes usos: Academia Militar de Cadetes, Casa de Beneficencia, almacén de provisiones del ejército, Hospital Militar, hasta que en 1946 fue elegido para ser la sede del Museo de Bellas Artes.
+
+El recorrido artístico se inicia con la selección de los llamados Primitivos Valencianos, que abarca desde finales del siglo XIV hasta principios del XVI, con artistas tan representativos como Alcanyís, Nicolau, Jacomart y Reixach, entre otros. También es de señalar la escuela valenciana con Joanes, los Ribalta, Espinosa, Vicente López, Sorolla, Pinazo y otros. Asimismo hay obras de Pintoricchio, Andrea del Sarto, Van Dyck, Murillo, Velázquez, El Greco y Goya. Cuenta además con un amplio fondo de dibujos y grabados, además de esculturas, piezas arqueológicas, fragmentos arquitectónicos y algunos ejemplos de arte mobiliar</hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.47931546211645</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.37070910524902523</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ElPatriarcayRealColegiodelCorpusChristi">
+  <rdf:type rdf:resource="#ReligiousBuilding"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El Patriarca y Real Colegio del Corpus Christi</hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El conjunto del Patriarca, Real Colegio del Seminario del Corpus Christi, está compuesto por colegio, seminario e iglesia. Esta gran obra se inició en 1586, concluyéndose en 1610.  
+El Patriarca, Monumento Nacional desde 1962 y Bien de Interés Cultural en 2007, es uno de los mejores ejemplos de arquitectura renacentista. En el Museo del Colegio destacan las pinturas de Caravaggio, El Greco, Van Der Weyden, Benlliure, Ribalta o Pinazo entre otros, así como el manuscrito original de la obra póstuma de Sir Thomas More. </hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.472615732174525</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.37305335592804134</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuseoCatedralicioDiocesano">
+  <rdf:type rdf:resource="#Monument"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Museo Catedralicio Diocesano  </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ubicado en la Catedral se encuentra el Museo Catedralicio, que exhibe hasta 90 obras de diferentes estilos, góticas, renacentistas, manieristas… Entre ellas destacan los lienzos de Maella y Goya o las pinturas sobre tabla de Juan de Juanes. En el Museo se conservan obras de arte que no están dedicadas al culto, entre las que se encuentran, tablas, óleos, esculturas y piezas de orfebrería además de albergar un subterráneo con restos arqueológicos. </hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.475456363957136</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.37507574152527035</hasLongitude>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LesFalles">
+  <rdf:type rdf:resource="#TouristAttraction"/>
+  <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les Falles  </hasName>
+  <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fiesta declarada Patrimonio Inmaterial de la Humanidad por la Unesco que se celebra del 1 al 19 de marzo, en la que València se vuelca en la celebración de las Fallas, una fiesta que combina tradición, sátira y arte y que no deberías perderte por nada del mundo. El origen de las Fallas se encuentra en una antigua costumbre de los carpinteros que, celebrando la llegada de la primavera, la noche del 19 quemaban frente a sus talleres las piezas de madera (parots) que usaban para elevar los candiles que les iluminaban durante el invierno. 
+Poco a poco, fueron añadiendo a este fuego purificador trastos viejos y harapos, que humanizaron a los parots hasta convertirlos en ninots. El humor de los valencianos pronto otorgó a esos ninots el sentido crítico e irónico que mantienen en la actualidad.  
+A día de hoy, las fallas han evolucionado hasta convertirse en obras de arte efímeras que, en algunos casos, tienen presupuestos millonarios. </hasDescription>
+  <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.470106272918486</hasLatitude>
+  <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-0.37727515291748226</hasLongitude>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
